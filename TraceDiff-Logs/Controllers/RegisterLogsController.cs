@@ -88,7 +88,7 @@ namespace TraceDiff_Logs.Controllers
             }
 
             registerLog.DateTime = DateTime.Now;
-            registerLog.Condition = ConditionBalancer();
+            registerLog.Condition = UserBalancer(register);
             registerLog.Permission = true;
 
             db.RegisterLogs.Add(registerLog);
@@ -149,11 +149,25 @@ namespace TraceDiff_Logs.Controllers
                 e.Assignment.Equals(assignment)).First();
         }
 
-        private int ConditionBalancer()
+        private int UserBalancer(String register)
+        {
+            List<RegisterLog> registerLogList = db.RegisterLogs.Where(
+                e => e.Register.Equals(register)).ToList();
+
+            if (registerLogList.Count > 0)
+            {
+                return ConditionBalancer(registerLogList);
+            }
+            else
+            {
+                return ConditionBalancer(db.RegisterLogs.ToList());
+            }
+        }
+
+        private int ConditionBalancer(List<RegisterLog> registerLogList)
         {
             int countOne = 0;
             int countThree = 0;
-            List<RegisterLog> registerLogList = db.RegisterLogs.ToList();
 
             foreach (RegisterLog register in registerLogList)
             {
