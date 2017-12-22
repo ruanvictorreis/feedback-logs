@@ -168,18 +168,27 @@ namespace TraceDiff_Logs.Controllers
         {
             int countOne = 0;
             int countThree = 0;
+            int lastCondition = 0;
 
             foreach (RegisterLog register in registerLogList)
             {
                 if (register.Condition == 1)
                 {
                     countOne++;
+                    lastCondition = 1;
                 }
                 else
                 {
                     countThree++;
+                    lastCondition = 3;
                 }
             }
+
+            if (countOne == countThree)
+            {
+                return lastCondition == 1 ? 3 : 1;
+            }
+
             return countOne > countThree ? 3 : 1;
         }
     }
