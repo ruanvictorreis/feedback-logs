@@ -22,7 +22,6 @@ namespace TraceDiff_Logs.Models
         [Required]
         public String Assignment { get; set; }
 
-        [Required]
         public String FixedCode { get; set; }
 
         [Required]
