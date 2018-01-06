@@ -81,6 +81,13 @@ namespace TraceDiff_Logs.Controllers
 
             submissionLog.DateTime = DateTime.Now;
 
+            var logsInteractionList = submissionLog.LogsInteractionList;
+
+            if (logsInteractionList != null && logsInteractionList.Count > 0)
+            {
+                submissionLog.LogsInteractionStr = SerializeInteractionLogs(logsInteractionList);
+            }
+
             db.SubmissionLogs.Add(submissionLog);
             db.SaveChanges();
 
@@ -115,6 +122,18 @@ namespace TraceDiff_Logs.Controllers
         private bool SubmissionLogExists(int id)
         {
             return db.SubmissionLogs.Count(e => e.Id == id) > 0;
+        }
+
+        private String SerializeInteractionLogs(List<String> logsInteractionList)
+        {
+            String serializedLogs = "";
+
+            foreach (String log in logsInteractionList)
+            {
+                serializedLogs = string.Concat(serializedLogs, string.Concat(log, ";"));
+            }
+
+            return serializedLogs.Remove(serializedLogs.Length - 1);
         }
     }
 }
