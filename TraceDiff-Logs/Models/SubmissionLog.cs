@@ -33,7 +33,7 @@ namespace TraceDiff_Logs.Models
         [Required]
         public String SubmittedCode { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public String DateTime { get; set; }
 
         public String LogsInteractionStr { get; set; }
 

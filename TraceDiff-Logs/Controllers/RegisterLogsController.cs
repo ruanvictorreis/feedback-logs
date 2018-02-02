@@ -87,8 +87,7 @@ namespace TraceDiff_Logs.Controllers
                 return Ok(GetRegisterLogBy(register, assignment));
             }
 
-            registerLog.DateTime = DateTime.Now;
-            registerLog.Condition = UserBalancer(register);
+            registerLog.Condition = AssignmentConditionBalancer(register);
             registerLog.Permission = true;
 
             db.RegisterLogs.Add(registerLog);
@@ -149,47 +148,61 @@ namespace TraceDiff_Logs.Controllers
                 e.Assignment.Equals(assignment)).First();
         }
 
-        private int UserBalancer(String register)
+        private int AssignmentConditionBalancer(String register)
         {
-            List<RegisterLog> registerLogList = db.RegisterLogs.Where(
+            List<RegisterLog> userRegisterLogList = db.RegisterLogs.Where(
                 e => e.Register.Equals(register)).ToList();
 
-            if (registerLogList.Count > 0)
+            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
+
+            if (userRegisterLogList.Count == 0)
             {
-                return ConditionBalancer(registerLogList);
+                return FirstAssignmentConditionBalancer(allRegisterLogList);
             }
             else
             {
-                return ConditionBalancer(db.RegisterLogs.ToList());
+                return SecondAssignmentConditionBalancer(allRegisterLogList);
             }
         }
 
-        private int ConditionBalancer(List<RegisterLog> registerLogList)
+        private int FirstAssignmentConditionBalancer(List<RegisterLog> allRegisterLogList)
         {
             int countOne = 0;
-            int countThree = 0;
-            int lastCondition = 0;
+            int countTwo = 0;
 
-            foreach (RegisterLog register in registerLogList)
+            foreach (RegisterLog register in allRegisterLogList)
             {
                 if (register.Condition == 1)
                 {
                     countOne++;
-                    lastCondition = 1;
                 }
                 else
                 {
-                    countThree++;
-                    lastCondition = 3;
+                    countTwo++;
                 }
             }
 
-            if (countOne == countThree)
+            return countOne > countTwo ? 2 : 1; ;
+        }
+
+        private int SecondAssignmentConditionBalancer(List<RegisterLog> allRegisterLogList)
+        {
+            int countThree = 0;
+            int countFour = 0;
+
+            foreach (RegisterLog register in allRegisterLogList)
             {
-                return lastCondition == 1 ? 3 : 1;
+                if (register.Condition == 1)
+                {
+                    countThree++;
+                }
+                else
+                {
+                    countFour++;
+                }
             }
 
-            return countOne > countThree ? 3 : 1;
+            return countThree > countFour ? 4 : 3;
         }
     }
 }

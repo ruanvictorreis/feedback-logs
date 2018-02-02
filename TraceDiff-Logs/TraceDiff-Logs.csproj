@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201801051517458_FixedCodeNotRequired.Designer.cs">
       <DependentUpon>201801051517458_FixedCodeNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802012336591_update-model.cs" />
+    <Compile Include="Migrations\201802012336591_update-model.Designer.cs">
+      <DependentUpon>201802012336591_update-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RegisterLog.cs" />
     <Compile Include="Models\SubmissionLog.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801051517458_FixedCodeNotRequired.resx">
       <DependentUpon>201801051517458_FixedCodeNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802012336591_update-model.resx">
+      <DependentUpon>201802012336591_update-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

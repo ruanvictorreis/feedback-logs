@@ -79,8 +79,6 @@ namespace TraceDiff_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
-            submissionLog.DateTime = DateTime.Now;
-
             var logsInteractionList = submissionLog.LogsInteractionList;
 
             if (logsInteractionList != null && logsInteractionList.Count > 0)

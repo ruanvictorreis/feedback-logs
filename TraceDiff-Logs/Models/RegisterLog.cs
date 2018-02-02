@@ -16,12 +16,11 @@ namespace TraceDiff_Logs.Models
         [Required]
         public String Register { get; set; }
 
-        [Required]
         public String Assignment { get; set; }
 
         public int Condition { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public String DateTime { get; set; }
 
         public Boolean Permission { get; set; }
     }
