@@ -192,7 +192,7 @@ namespace TraceDiff_Logs.Controllers
 
             foreach (RegisterLog register in allRegisterLogList)
             {
-                if (register.Condition == 1)
+                if (register.Condition == 3)
                 {
                     countThree++;
                 }
