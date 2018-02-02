@@ -153,22 +153,22 @@ namespace TraceDiff_Logs.Controllers
             List<RegisterLog> userRegisterLogList = db.RegisterLogs.Where(
                 e => e.Register.Equals(register)).ToList();
 
-            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
-
             if (userRegisterLogList.Count == 0)
             {
-                return FirstAssignmentConditionBalancer(allRegisterLogList);
+                return FirstAssignmentConditionBalancer();
             }
             else
             {
-                return SecondAssignmentConditionBalancer(allRegisterLogList);
+                return SecondAssignmentConditionBalancer();
             }
         }
 
-        private int FirstAssignmentConditionBalancer(List<RegisterLog> allRegisterLogList)
+        private int FirstAssignmentConditionBalancer()
         {
             int countOne = 0;
             int countTwo = 0;
+
+            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
 
             foreach (RegisterLog register in allRegisterLogList)
             {
@@ -176,19 +176,21 @@ namespace TraceDiff_Logs.Controllers
                 {
                     countOne++;
                 }
-                else
+                if (register.Condition == 2)
                 {
                     countTwo++;
                 }
             }
 
-            return countOne > countTwo ? 2 : 1; ;
+            return countOne > countTwo ? 2 : 1;
         }
 
-        private int SecondAssignmentConditionBalancer(List<RegisterLog> allRegisterLogList)
+        private int SecondAssignmentConditionBalancer()
         {
             int countThree = 0;
             int countFour = 0;
+
+            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
 
             foreach (RegisterLog register in allRegisterLogList)
             {
@@ -196,7 +198,7 @@ namespace TraceDiff_Logs.Controllers
                 {
                     countThree++;
                 }
-                else
+                if (register.Condition == 4)
                 {
                     countFour++;
                 }
