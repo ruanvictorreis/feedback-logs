@@ -187,6 +187,7 @@ namespace TraceDiff_Logs.Controllers
 
         private int SecondAssignmentConditionBalancer()
         {
+            /**
             int countThree = 0;
             int countFour = 0;
 
@@ -205,6 +206,8 @@ namespace TraceDiff_Logs.Controllers
             }
 
             return countThree > countFour ? 4 : 3;
+            */
+            return 3;
         }
     }
 }
