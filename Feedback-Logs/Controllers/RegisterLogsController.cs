@@ -87,7 +87,8 @@ namespace Feedback_Logs.Controllers
                 return Ok(GetRegisterLogBy(register, assignment));
             }
 
-            registerLog.Condition = AssignmentConditionBalancer(register);
+            // TEMPORARY
+            //registerLog.Condition = AssignmentConditionBalancer(register);
             registerLog.Permission = true;
 
             db.RegisterLogs.Add(registerLog);
