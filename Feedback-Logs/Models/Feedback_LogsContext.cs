@@ -22,5 +22,7 @@ namespace Feedback_Logs.Models
         public System.Data.Entity.DbSet<Feedback_Logs.Models.RegisterLog> RegisterLogs { get; set; }
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.SubmissionLog> SubmissionLogs { get; set; }
+
+        public System.Data.Entity.DbSet<Feedback_Logs.Models.Quiz> QuizLogs { get; set; }
     }
 }
