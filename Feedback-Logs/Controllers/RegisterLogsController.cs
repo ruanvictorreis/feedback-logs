@@ -87,8 +87,7 @@ namespace Feedback_Logs.Controllers
                 return Ok(GetRegisterLogBy(register, assignment));
             }
 
-            // TEMPORARY
-            //registerLog.Condition = AssignmentConditionBalancer(register);
+            registerLog.Condition = AssignmentConditionBalancer(register);
             registerLog.Permission = true;
 
             db.RegisterLogs.Add(registerLog);
@@ -154,20 +153,15 @@ namespace Feedback_Logs.Controllers
             List<RegisterLog> userRegisterLogList = db.RegisterLogs.Where(
                 e => e.Register.Equals(register)).ToList();
 
-            if (userRegisterLogList.Count == 0)
-            {
-                return FirstAssignmentConditionBalancer();
-            }
-            else
-            {
-                return SecondAssignmentConditionBalancer();
-            }
+            return FindBestCondition(userRegisterLogList);
         }
 
-        private int FirstAssignmentConditionBalancer()
+        private int FindBestCondition(List<RegisterLog> userRegisterLogList)
         {
             int countOne = 0;
             int countTwo = 0;
+            int countThree = 0;
+            int countFour = 0;
 
             List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
 
@@ -177,38 +171,35 @@ namespace Feedback_Logs.Controllers
                 {
                     countOne++;
                 }
+
                 if (register.Condition == 2)
                 {
                     countTwo++;
                 }
-            }
 
-            return countOne > countTwo ? 2 : 1;
-        }
-
-        private int SecondAssignmentConditionBalancer()
-        {
-            /**
-            int countThree = 0;
-            int countFour = 0;
-
-            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
-
-            foreach (RegisterLog register in allRegisterLogList)
-            {
                 if (register.Condition == 3)
                 {
                     countThree++;
                 }
+
                 if (register.Condition == 4)
                 {
                     countFour++;
                 }
             }
 
-            return countThree > countFour ? 4 : 3;
-            */
-            return 3;
+            Dictionary<int, int> balancer = new Dictionary<int, int>();
+            balancer.Add(1, countOne);
+            balancer.Add(2, countTwo);
+            balancer.Add(3, countThree);
+            balancer.Add(4, countFour);
+
+            foreach (RegisterLog register in userRegisterLogList)
+            {
+                balancer.Remove(register.Condition);
+            }
+
+            return balancer.FirstOrDefault(x => x.Value == balancer.Values.Min()).Key;
         }
     }
 }
