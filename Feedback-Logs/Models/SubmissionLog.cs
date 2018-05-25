@@ -14,7 +14,7 @@ namespace Feedback_Logs.Models
         public int Id { get; set; }
 
         [Required]
-        public int Condition { get; set; }
+        public String DateTime { get; set; }
 
         [Required]
         public String Register { get; set; }
@@ -22,21 +22,31 @@ namespace Feedback_Logs.Models
         [Required]
         public String Assignment { get; set; }
 
-        public String FixedCode { get; set; }
-
         [Required]
+        public int Condition { get; set; }
+
+
         public Boolean IsCorrect { get; set; }
 
-        [Required]
-        public Boolean HasFix { get; set; }
 
-        [Required]
         public String SubmittedCode { get; set; }
 
-        public String DateTime { get; set; }
 
-        public String LogsInteractionStr { get; set; }
+        public Boolean SyntaxError { get; set; }
 
-        public List<String> LogsInteractionList { get; set; }
+
+        public String ErrorMsg { get; set; }
+
+
+        public String CodeRepaired { get; set; }
+
+
+        public Boolean IsCodeRepaired { get; set; }
+
+
+        public String Repairs { get; set; }
+
+
+        public Boolean IsRepaired { get; set; }
     }
 }

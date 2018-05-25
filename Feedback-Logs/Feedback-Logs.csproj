@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201805241857137_quiz-model.Designer.cs">
       <DependentUpon>201805241857137_quiz-model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805251817318_update-submission-model.cs" />
+    <Compile Include="Migrations\201805251817318_update-submission-model.Designer.cs">
+      <DependentUpon>201805251817318_update-submission-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\RegisterLog.cs" />
@@ -301,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805241857137_quiz-model.resx">
       <DependentUpon>201805241857137_quiz-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805251817318_update-submission-model.resx">
+      <DependentUpon>201805251817318_update-submission-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

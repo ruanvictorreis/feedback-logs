@@ -79,12 +79,13 @@ namespace Feedback_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
+            /**
             var logsInteractionList = submissionLog.LogsInteractionList;
 
             if (logsInteractionList != null && logsInteractionList.Count > 0)
             {
                 submissionLog.LogsInteractionStr = SerializeInteractionLogs(logsInteractionList);
-            }
+            }*/
 
             db.SubmissionLogs.Add(submissionLog);
             db.SaveChanges();
@@ -122,6 +123,7 @@ namespace Feedback_Logs.Controllers
             return db.SubmissionLogs.Count(e => e.Id == id) > 0;
         }
 
+        /**
         private String SerializeInteractionLogs(List<String> logsInteractionList)
         {
             String serializedLogs = "";
@@ -132,6 +134,6 @@ namespace Feedback_Logs.Controllers
             }
 
             return serializedLogs.Remove(serializedLogs.Length - 1);
-        }
+        }*/
     }
 }
