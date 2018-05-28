@@ -79,6 +79,14 @@ namespace Feedback_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
+            var register = quiz.Register;
+            var assignment = quiz.Assignment;
+
+            if (QuizLogExists(register, assignment))
+            {
+                return Ok(GetQuizBy(register, assignment));
+            }
+
             db.QuizLogs.Add(quiz);
             db.SaveChanges();
 
@@ -110,9 +118,21 @@ namespace Feedback_Logs.Controllers
             base.Dispose(disposing);
         }
 
+        private Quiz GetQuizBy(String register, String assignment)
+        {
+            return db.QuizLogs.Where(e => e.Register.Equals(register) &&
+                e.Assignment.Equals(assignment)).First();
+        }
+
         private bool QuizExists(int id)
         {
             return db.QuizLogs.Count(e => e.Id == id) > 0;
+        }
+
+        private bool QuizLogExists(String register, String assignment)
+        {
+            return db.QuizLogs.Count(e => e.Register.Equals(register) &&
+                e.Assignment.Equals(assignment)) > 0;
         }
     }
 }
