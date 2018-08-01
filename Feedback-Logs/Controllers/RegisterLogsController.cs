@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Feedback_Logs.Models;
@@ -161,7 +160,6 @@ namespace Feedback_Logs.Controllers
             int countOne = 0;
             int countTwo = 0;
             int countThree = 0;
-            int countFour = 0;
 
             List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
 
@@ -181,18 +179,12 @@ namespace Feedback_Logs.Controllers
                 {
                     countThree++;
                 }
-
-                if (register.Condition == 4)
-                {
-                    countFour++;
-                }
             }
 
             Dictionary<int, int> balancer = new Dictionary<int, int>();
             balancer.Add(1, countOne);
             balancer.Add(2, countTwo);
             balancer.Add(3, countThree);
-            balancer.Add(4, countFour);
 
             foreach (RegisterLog register in userRegisterLogList)
             {
