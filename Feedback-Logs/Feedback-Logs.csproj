@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201808062220496_agreement_migration.Designer.cs">
       <DependentUpon>201808062220496_agreement_migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808062248408_add_agreement_to_register.cs" />
+    <Compile Include="Migrations\201808062248408_add_agreement_to_register.Designer.cs">
+      <DependentUpon>201808062248408_add_agreement_to_register.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgreementRegister.cs" />
     <Compile Include="Models\Quiz.cs" />
@@ -317,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808062220496_agreement_migration.resx">
       <DependentUpon>201808062220496_agreement_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062248408_add_agreement_to_register.resx">
+      <DependentUpon>201808062248408_add_agreement_to_register.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

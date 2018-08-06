@@ -22,6 +22,6 @@ namespace Feedback_Logs.Models
 
         public String DateTime { get; set; }
 
-        public Boolean Permission { get; set; }
+        public Boolean AgreementRequired { get; set; }
     }
 }

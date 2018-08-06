@@ -87,7 +87,7 @@ namespace Feedback_Logs.Controllers
             }
 
             registerLog.Condition = AssignmentConditionBalancer(register);
-            registerLog.Permission = true;
+            registerLog.AgreementRequired = IsAgreementRequired(register);
 
             db.RegisterLogs.Add(registerLog);
 
@@ -133,6 +133,11 @@ namespace Feedback_Logs.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool IsAgreementRequired(String register)
+        {
+            return db.AgreementLogs.Count(e => e.Register.Equals(register)) == 0;
         }
 
         private bool RegisterLogExists(String register, String assignment)
