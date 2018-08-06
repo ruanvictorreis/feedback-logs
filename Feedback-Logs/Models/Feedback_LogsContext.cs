@@ -14,7 +14,7 @@ namespace Feedback_Logs.Models
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
+
         public Feedback_LogsContext() : base("name=Feedback_LogsContext")
         {
         }
@@ -24,5 +24,7 @@ namespace Feedback_Logs.Models
         public System.Data.Entity.DbSet<Feedback_Logs.Models.SubmissionLog> SubmissionLogs { get; set; }
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.Quiz> QuizLogs { get; set; }
+
+        public System.Data.Entity.DbSet<Feedback_Logs.Models.AgreementRegister> AgreementLogs { get; set; }
     }
 }

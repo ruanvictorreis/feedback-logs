@@ -183,6 +183,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AgreementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\RegisterLogsController.cs" />
@@ -214,7 +215,12 @@
     <Compile Include="Migrations\201805251817318_update-submission-model.Designer.cs">
       <DependentUpon>201805251817318_update-submission-model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808062220496_agreement_migration.cs" />
+    <Compile Include="Migrations\201808062220496_agreement_migration.Designer.cs">
+      <DependentUpon>201808062220496_agreement_migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AgreementRegister.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\RegisterLog.cs" />
     <Compile Include="Models\SubmissionLog.cs" />
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805251817318_update-submission-model.resx">
       <DependentUpon>201805251817318_update-submission-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062220496_agreement_migration.resx">
+      <DependentUpon>201808062220496_agreement_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
