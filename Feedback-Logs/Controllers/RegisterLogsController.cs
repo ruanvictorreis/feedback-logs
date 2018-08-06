@@ -83,7 +83,9 @@ namespace Feedback_Logs.Controllers
 
             if (RegisterLogExists(register, assignment))
             {
-                return Ok(GetRegisterLogBy(register, assignment));
+                RegisterLog oldRegister = GetRegisterLogBy(register, assignment);
+                oldRegister.AgreementRequired = IsAgreementRequired(register);
+                return Ok(oldRegister);
             }
 
             registerLog.Condition = AssignmentConditionBalancer(register);
