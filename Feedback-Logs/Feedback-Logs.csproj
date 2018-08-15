@@ -188,6 +188,7 @@
     <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\RegisterLogsController.cs" />
     <Compile Include="Controllers\SubmissionLogsController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,12 +224,17 @@
     <Compile Include="Migrations\201808062248408_add_agreement_to_register.Designer.cs">
       <DependentUpon>201808062248408_add_agreement_to_register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808151614113_survey-model.cs" />
+    <Compile Include="Migrations\201808151614113_survey-model.Designer.cs">
+      <DependentUpon>201808151614113_survey-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgreementRegister.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\RegisterLog.cs" />
     <Compile Include="Models\SubmissionLog.cs" />
     <Compile Include="Models\Feedback_LogsContext.cs" />
+    <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808062248408_add_agreement_to_register.resx">
       <DependentUpon>201808062248408_add_agreement_to_register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151614113_survey-model.resx">
+      <DependentUpon>201808151614113_survey-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
