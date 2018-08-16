@@ -90,6 +90,7 @@ namespace Feedback_Logs.Controllers
 
             registerLog.Condition = AssignmentConditionBalancer(register);
             registerLog.AgreementRequired = IsAgreementRequired(register);
+            registerLog.Counter = GetCounter(register);
 
             db.RegisterLogs.Add(registerLog);
 
@@ -146,6 +147,11 @@ namespace Feedback_Logs.Controllers
         {
             return db.RegisterLogs.Count(e => e.Register.Equals(register) &&
                 e.Assignment.Equals(assignment)) > 0;
+        }
+
+        private int GetCounter(String register)
+        {
+            return db.RegisterLogs.Count(e => e.Register.Equals(register)) + 1;
         }
 
         private RegisterLog GetRegisterLogBy(String register, String assignment)

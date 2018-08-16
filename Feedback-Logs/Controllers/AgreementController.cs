@@ -79,6 +79,14 @@ namespace Feedback_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
+            var register = agreementRegister.Register;
+            var email = agreementRegister.Email;
+
+            if (AgreementRegisterExists(register, email))
+            {
+                return Ok(GetAgreementBy(register, email));
+            }
+
             db.AgreementLogs.Add(agreementRegister);
             db.SaveChanges();
 
@@ -110,9 +118,21 @@ namespace Feedback_Logs.Controllers
             base.Dispose(disposing);
         }
 
+        private AgreementRegister GetAgreementBy(String register, String email)
+        {
+            return db.AgreementLogs.Where(e => e.Register.Equals(register) &&
+                e.Email.Equals(email)).First();
+        }
+
         private bool AgreementRegisterExists(int id)
         {
             return db.AgreementLogs.Count(e => e.Id == id) > 0;
+        }
+
+        private bool AgreementRegisterExists(String register, String email)
+        {
+            return db.AgreementLogs.Count(e => e.Register.Equals(register) &&
+                e.Email.Equals(email)) > 0;
         }
     }
 }

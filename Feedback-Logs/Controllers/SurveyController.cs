@@ -79,6 +79,14 @@ namespace Feedback_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
+            var register = survey.Register;
+            var assignment = survey.Assignment;
+
+            if (SurveyExists(register, assignment))
+            {
+                return Ok(GetSurveyBy(register, assignment));
+            }
+
             db.SurveyLogs.Add(survey);
             db.SaveChanges();
 
@@ -110,9 +118,21 @@ namespace Feedback_Logs.Controllers
             base.Dispose(disposing);
         }
 
+        private Survey GetSurveyBy(String register, String assignment)
+        {
+            return db.SurveyLogs.Where(e => e.Register.Equals(register) &&
+                e.Assignment.Equals(assignment)).First();
+        }
+
         private bool SurveyExists(int id)
         {
             return db.SurveyLogs.Count(e => e.Id == id) > 0;
+        }
+
+        private bool SurveyExists(String register, String assignment)
+        {
+            return db.SurveyLogs.Count(e => e.Register.Equals(register) &&
+                e.Assignment.Equals(assignment)) > 0;
         }
     }
 }

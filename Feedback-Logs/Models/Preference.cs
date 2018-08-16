@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Feedback_Logs.Models
 {
-    public class RegisterLog
+    public class Preference
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,14 +17,6 @@ namespace Feedback_Logs.Models
         public String Register { get; set; }
 
         [Required]
-        public String Assignment { get; set; }
-
-        public int Condition { get; set; }
-
-        public int Counter { get; set; }
-
-        public String DateTime { get; set; }
-
-        public Boolean AgreementRequired { get; set; }
+        public String Feedback { get; set; }
     }
 }

@@ -28,5 +28,7 @@ namespace Feedback_Logs.Models
         public System.Data.Entity.DbSet<Feedback_Logs.Models.Survey> SurveyLogs { get; set; }
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.AgreementRegister> AgreementLogs { get; set; }
+
+        public System.Data.Entity.DbSet<Feedback_Logs.Models.Preference> Preferences { get; set; }
     }
 }
