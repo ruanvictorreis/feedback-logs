@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Feedback_Logs.Models
 {
-    public class Preference
+    public class Suggestion
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

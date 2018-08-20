@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Feedback_Logs.Models
 {
-    public class Survey
+    public class LearningSurvey
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
