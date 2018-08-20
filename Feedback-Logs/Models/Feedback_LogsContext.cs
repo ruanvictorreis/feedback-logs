@@ -27,6 +27,8 @@ namespace Feedback_Logs.Models
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.LearningSurvey> LearningSurveyLogs { get; set; }
 
+        public System.Data.Entity.DbSet<Feedback_Logs.Models.FixingSurvey> FixingSurveyLogs { get; set; }
+
         public System.Data.Entity.DbSet<Feedback_Logs.Models.AgreementRegister> AgreementLogs { get; set; }
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.Suggestion> SuggestionLogs { get; set; }
