@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AgreementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FixingSurveyController.cs" />
+    <Compile Include="Controllers\BackgroundController.cs" />
     <Compile Include="Controllers\SuggestionController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\RegisterLogsController.cs" />
@@ -250,8 +251,13 @@
     <Compile Include="Migrations\201808201611010_fixingSurvey-model.Designer.cs">
       <DependentUpon>201808201611010_fixingSurvey-model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808230034060_background-model.cs" />
+    <Compile Include="Migrations\201808230034060_background-model.Designer.cs">
+      <DependentUpon>201808230034060_background-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgreementRegister.cs" />
+    <Compile Include="Models\Background.cs" />
     <Compile Include="Models\FixingSurvey.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\Quiz.cs" />
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808201611010_fixingSurvey-model.resx">
       <DependentUpon>201808201611010_fixingSurvey-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808230034060_background-model.resx">
+      <DependentUpon>201808230034060_background-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

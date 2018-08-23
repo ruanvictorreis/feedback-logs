@@ -31,6 +31,8 @@ namespace Feedback_Logs.Models
 
         public System.Data.Entity.DbSet<Feedback_Logs.Models.AgreementRegister> AgreementLogs { get; set; }
 
+        public System.Data.Entity.DbSet<Feedback_Logs.Models.Background> BackgroundLogs { get; set; }
+
         public System.Data.Entity.DbSet<Feedback_Logs.Models.Suggestion> SuggestionLogs { get; set; }
     }
 }
