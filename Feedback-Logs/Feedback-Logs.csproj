@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201808230034060_background-model.Designer.cs">
       <DependentUpon>201808230034060_background-model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808241325476_background-required.cs" />
+    <Compile Include="Migrations\201808241325476_background-required.Designer.cs">
+      <DependentUpon>201808241325476_background-required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgreementRegister.cs" />
     <Compile Include="Models\Background.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808230034060_background-model.resx">
       <DependentUpon>201808230034060_background-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808241325476_background-required.resx">
+      <DependentUpon>201808241325476_background-required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

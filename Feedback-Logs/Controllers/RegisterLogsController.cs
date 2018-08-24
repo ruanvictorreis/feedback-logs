@@ -85,11 +85,13 @@ namespace Feedback_Logs.Controllers
             {
                 RegisterLog oldRegister = GetRegisterLogBy(register, assignment);
                 oldRegister.AgreementRequired = IsAgreementRequired(register);
+                oldRegister.BackgroundRequired = IsBackgroundRequired(register);
                 return Ok(oldRegister);
             }
 
             registerLog.Condition = AssignmentConditionBalancer(register);
             registerLog.AgreementRequired = IsAgreementRequired(register);
+            registerLog.BackgroundRequired = IsBackgroundRequired(register);
             registerLog.Counter = GetCounter(register);
 
             db.RegisterLogs.Add(registerLog);
@@ -142,6 +144,12 @@ namespace Feedback_Logs.Controllers
         {
             return db.AgreementLogs.Count(e => e.Register.Equals(register)) == 0;
         }
+
+        private bool IsBackgroundRequired(String register)
+        {
+            return db.BackgroundLogs.Count(e => e.Register.Equals(register)) == 0;
+        }
+
 
         private bool RegisterLogExists(String register, String assignment)
         {

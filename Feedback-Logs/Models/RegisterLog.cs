@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Feedback_Logs.Models
 {
@@ -26,5 +23,7 @@ namespace Feedback_Logs.Models
         public String DateTime { get; set; }
 
         public Boolean AgreementRequired { get; set; }
+
+        public Boolean BackgroundRequired { get; set; }
     }
 }
