@@ -17,7 +17,7 @@ namespace Feedback_Logs.Models
         public String Assignment { get; set; }
 
         [Required]
-        public int Likert { get; set; }
+        public String Answer { get; set; }
 
         [Required]
         public int Condition { get; set; }

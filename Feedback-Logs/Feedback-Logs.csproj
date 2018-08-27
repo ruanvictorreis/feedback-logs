@@ -259,6 +259,10 @@
     <Compile Include="Migrations\201808241325476_background-required.Designer.cs">
       <DependentUpon>201808241325476_background-required.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808272009313_answer-survey.cs" />
+    <Compile Include="Migrations\201808272009313_answer-survey.Designer.cs">
+      <DependentUpon>201808272009313_answer-survey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgreementRegister.cs" />
     <Compile Include="Models\Background.cs" />
@@ -388,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808241325476_background-required.resx">
       <DependentUpon>201808241325476_background-required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808272009313_answer-survey.resx">
+      <DependentUpon>201808272009313_answer-survey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
