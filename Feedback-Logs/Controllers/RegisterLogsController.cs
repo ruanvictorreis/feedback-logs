@@ -202,6 +202,15 @@ namespace Feedback_Logs.Controllers
                 }
             }
 
+            bool isBalanced = countOne == countTwo && countOne == countThree;
+            bool isEmptyList = !userRegisterLogList.Any();
+
+            if (isBalanced && isEmptyList)
+            {
+                Random rnd = new Random();
+                return rnd.Next(1, 4);
+            }
+
             Dictionary<int, int> balancer = new Dictionary<int, int>();
             balancer.Add(1, countOne);
             balancer.Add(2, countTwo);
