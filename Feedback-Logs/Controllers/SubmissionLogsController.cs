@@ -12,17 +12,28 @@ using Feedback_Logs.Models;
 
 namespace Feedback_Logs.Controllers
 {
+    [RoutePrefix("api/submissionLogs")]
     public class SubmissionLogsController : ApiController
     {
+
         private Feedback_LogsContext db = new Feedback_LogsContext();
 
         // GET: api/SubmissionLogs
+        [Route("")]
         public IQueryable<SubmissionLog> GetSubmissionLogs()
         {
             return db.SubmissionLogs;
         }
 
+        // GET: api/SubmissionLogs/register/111210442
+        [Route("register/{register}")]
+        public IQueryable<SubmissionLog> GetSubmissionLogsByRegister(String register)
+        {
+            return db.SubmissionLogs.Where(e => e.Register.Equals(register));
+        }
+
         // GET: api/SubmissionLogs/5
+        [Route("{id:int}")]
         [ResponseType(typeof(SubmissionLog))]
         public IHttpActionResult GetSubmissionLog(int id)
         {
@@ -36,6 +47,7 @@ namespace Feedback_Logs.Controllers
         }
 
         // PUT: api/SubmissionLogs/5
+        [Route("{id:int}"), HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSubmissionLog(int id, SubmissionLog submissionLog)
         {
@@ -71,6 +83,7 @@ namespace Feedback_Logs.Controllers
         }
 
         // POST: api/SubmissionLogs
+        [Route(""), HttpPost]
         [ResponseType(typeof(SubmissionLog))]
         public IHttpActionResult PostSubmissionLog(SubmissionLog submissionLog)
         {
@@ -79,14 +92,6 @@ namespace Feedback_Logs.Controllers
                 return BadRequest(ModelState);
             }
 
-            /**
-            var logsInteractionList = submissionLog.LogsInteractionList;
-
-            if (logsInteractionList != null && logsInteractionList.Count > 0)
-            {
-                submissionLog.LogsInteractionStr = SerializeInteractionLogs(logsInteractionList);
-            }*/
-
             db.SubmissionLogs.Add(submissionLog);
             db.SaveChanges();
 
@@ -94,6 +99,7 @@ namespace Feedback_Logs.Controllers
         }
 
         // DELETE: api/SubmissionLogs/5
+        [Route("{id:int}"), HttpDelete]
         [ResponseType(typeof(SubmissionLog))]
         public IHttpActionResult DeleteSubmissionLog(int id)
         {
