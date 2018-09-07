@@ -178,50 +178,15 @@ namespace Feedback_Logs.Controllers
 
         private int FindBestCondition(List<RegisterLog> userRegisterLogList)
         {
-            int countOne = 0;
-            int countTwo = 0;
-            int countThree = 0;
-
-            List<RegisterLog> allRegisterLogList = db.RegisterLogs.ToList();
-
-            foreach (RegisterLog register in allRegisterLogList)
-            {
-                if (register.Condition == 1)
-                {
-                    countOne++;
-                }
-
-                if (register.Condition == 2)
-                {
-                    countTwo++;
-                }
-
-                if (register.Condition == 3)
-                {
-                    countThree++;
-                }
-            }
-
-            bool isBalanced = countOne == countTwo && countOne == countThree;
-            bool isEmptyList = !userRegisterLogList.Any();
-
-            if (isBalanced && isEmptyList)
-            {
-                Random rnd = new Random();
-                return rnd.Next(1, 4);
-            }
-
-            Dictionary<int, int> balancer = new Dictionary<int, int>();
-            balancer.Add(1, countOne);
-            balancer.Add(2, countTwo);
-            balancer.Add(3, countThree);
+            List<int> allConditions = new List<int> { 1, 2, 3 };
 
             foreach (RegisterLog register in userRegisterLogList)
             {
-                balancer.Remove(register.Condition);
+                allConditions.Remove(register.Condition);
             }
 
-            return balancer.FirstOrDefault(x => x.Value == balancer.Values.Min()).Key;
+            Random rnd = new Random();
+            return allConditions[rnd.Next(allConditions.Count)];
         }
     }
 }
