@@ -89,7 +89,9 @@ namespace Feedback_Logs.Controllers
                 return Ok(oldRegister);
             }
 
-            registerLog.Condition = AssignmentConditionBalancer(register);
+            registerLog.Condition = Bias(assignment);
+            //registerLog.Condition = AssignmentConditionBalancer(register);
+
             registerLog.AgreementRequired = IsAgreementRequired(register);
             registerLog.BackgroundRequired = IsBackgroundRequired(register);
             registerLog.Counter = GetCounter(register);
@@ -187,6 +189,26 @@ namespace Feedback_Logs.Controllers
 
             Random rnd = new Random();
             return allConditions[rnd.Next(allConditions.Count)];
+        }
+
+        private int Bias(String assignment)
+        {
+            if (assignment.Equals("sum_of_squares"))
+            {
+                return 1;
+            }
+
+            if (assignment.Equals("is_prime_number"))
+            {
+                return 2;
+            }
+
+            if (assignment.Equals("fibonacci"))
+            {
+                return 3;
+            }
+
+            return 0;
         }
     }
 }
