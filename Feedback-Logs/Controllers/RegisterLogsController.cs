@@ -89,8 +89,8 @@ namespace Feedback_Logs.Controllers
                 return Ok(oldRegister);
             }
 
-            registerLog.Condition = Bias(assignment);
-            //registerLog.Condition = AssignmentConditionBalancer(register);
+            //registerLog.Condition = Bias(assignment);
+            registerLog.Condition = AssignmentConditionBalancer(register);
 
             registerLog.AgreementRequired = IsAgreementRequired(register);
             registerLog.BackgroundRequired = IsBackgroundRequired(register);
