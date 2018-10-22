@@ -95,7 +95,7 @@ namespace Feedback_Logs.Controllers
             db.SubmissionLogs.Add(submissionLog);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = submissionLog.Id }, submissionLog);
+            return CreatedAtRoute("", new { id = submissionLog.Id }, submissionLog);
         }
 
         // DELETE: api/SubmissionLogs/5
